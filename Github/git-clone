@@ -1,0 +1,9 @@
+1. To clone the public repo just run (main - branch).
+    git clone "<git url>"
+
+2. To clone the specific branch of public repo (feature - branch).
+    git clone --branch <branch name> <specific branch url>
+
+3. To clone the private repository.
+    git clone <git url in that after https:// add the username@ before the github.com>
+    For example ---> git clone https://JEEVANBG@github.com/JEEVANBG/PETSHOP.git
