@@ -1,0 +1,7 @@
+1. To edit the last committed msg:
+    a. git commit --amend -m "New Msg"
+    b. git push --force
+
+    By using above 2 commands we can edit the last msg committed , so it create a new id for the new msg, but still it removes the last previously committed id and msg from history, by that we can hv a clean history.
+
+2. need to check on how to edit the older commit msg
