@@ -4,9 +4,31 @@
 
     By using above 2 commands we can edit the last msg committed , so it create a new id for the new msg, but still it removes the last previously committed id and msg from history, by that we can hv a clean history.
 
-2. need to check on how to edit the older commit msg
-    need to hceck - need work on this issues
-    will work on edditing commoit msg
-    will work on commiting
-    will work on new commit
-    this files need to work on
+2. How to edit the older commit msg
+    a. git rebase -i HEAD~5
+        5 - it measn it will take last 5 committed msgs.
+
+    b. It opens the files like, commit history
+        pick d901952 Updated the last commit msg with new msg
+        pick a812b0c Just to check the cmmit id First updated commit
+        pick 704dbfa updated commit need to check 
+
+        based on this we can select the commit that we need to change, let say we need to edit 704dbfa
+        just remove the pick word and replcae it by reword like,
+
+        reword 704dbfa updated commit need to check 
+        save and exit
+        
+        then it open another file where, we hv the commit msg, just remove that and add the new commit msg.
+        save and exit
+
+        git push --force
+        To implement the changes
+
+
+Note : It creates the new commit id for each changes.
+
+git rebase - We hv a linear history, everything updated in base.
+git merge - Every commit from other branch appened as branch, non-linear.
+
+For production use the git merge only
