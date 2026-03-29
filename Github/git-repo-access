@@ -1,0 +1,12 @@
+To access the repo their are 2 types:
+1. By clonning the remote repo to local.
+        By clonning the repo to my local.
+        To make changes to code, just open the cloned folder in VSC code.
+
+2. Directly access the remote repo from VS code.
+        In file explorer if we select the remote repo, so it will directly open the repo virtually, and whatever the changes the that we do will reflect in remote repo not in our local.
+
+
+Note : So be carefull, while using the explorer in VS code.
+
+
