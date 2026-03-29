@@ -1,0 +1,20 @@
+1. To create the new branch we hv 2 ways:
+    a. Create in UI itself.
+
+    b. Create from CLI
+        To create a branch only : git checkout <branch name>
+        To create and checkout to that branch : git checkout -b <branch name>
+
+2. To work in multiple branches:
+    a. clone the main branch to local.
+    b. In VS code in the bottom we hv branch icon, using that we can navigate / work on any branch.
+    c. To check the current branch where we in:
+        git branch   : It shows the * infront of branch, that is the active branch.
+
+3. To push the data from branch:
+    a. first time use the below command.
+        git push -u origin <branch name>
+
+    b. next time 
+        git push --all
+        
