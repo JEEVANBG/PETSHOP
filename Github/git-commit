@@ -31,4 +31,4 @@ Note : It creates the new commit id for each changes.
 git rebase - We hv a linear history, everything updated in base.
 git merge - Every commit from other branch appened as branch, non-linear.
 
-For production use the git merge only
+For production use the git merge only.

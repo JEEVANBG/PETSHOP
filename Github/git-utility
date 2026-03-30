@@ -1,0 +1,11 @@
+1. Git Cherrypick:
+    Git cherrypick is basically used to apply the specific commit changes to another branch.
+
+    For Example:
+    You are in feature branch and edit one file and push that to feature branch.
+    Get the commit id using the git ---> git log --oneline
+    After that checkout to main or any branch where we need to apply this specific commit and run below command.
+    git cherry-pick <copied commit id from feature branch>
+    git push --all (to push the chnages to remote repo)
+
+    
