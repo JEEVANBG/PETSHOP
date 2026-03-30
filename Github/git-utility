@@ -8,4 +8,29 @@
     git cherry-pick <copied commit id from feature branch>
     git push --all (to push the chnages to remote repo)
 
-    
+2. Git Revert:
+    Git revert is basically used to revert the last changes pushed or we revert multiple commits by keeping the commit history.
+
+    Get the commit history using the :
+    git log --oneline    (copy the commit id that we need to revert and exit the file)
+
+    run the below command to revert the changes:
+    git revert <commit id>
+
+    Case 1:
+        If you select the last commit id, it just revert the last changes by maintaining the commit history, basically it will create the new commit id.
+
+        revert last commit only, here it create the new commit, but it revert the changes made by E commit, it still keep the changes made till D only.
+        A → B → C → D → E→ E'
+
+    Case 2:
+        If you select the previoulsy committed msg , let say last 3rd commit id, in that case it will remove whatever the chnages made in that commit and it keep all the changes that we done after that commit.
+
+        revert B only, here it create the new commit, but it revert the changes made by B commit, it still keep the changes made in D and E.
+        A → B → C → D → E → B'
+
+    Case 3:
+        If you revert multiple commit like need to remove last 3 commits, then we need to revert one by one, till we needed.
+        
+        revert till B, here it create the new commit, but it revert the changes till B
+        A → B → C → D → E → E' → D' → C'
