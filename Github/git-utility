@@ -31,6 +31,31 @@
 
     Case 3:
         If you revert multiple commit like need to remove last 3 commits, then we need to revert one by one, till we needed.
-        
+
         revert till B, here it create the new commit, but it revert the changes till B
         A → B → C → D → E → E' → D' → C'
+
+3. Git Reset:
+    git reset is basically used to revert the commit msg only not the changes.
+
+    here we hv 3 types:
+    a. Soft:
+        git reset --soft HEAD~1
+        here it removes the last commit msg and again we can push the data with git -m "new commit msg"
+
+        Changes are already stagged we just need to push the data to repo.
+
+    b. Mixed:
+        git reset HEAD~1 or git reset --mixed
+        here it removes the last commit msg and to push the data to repo, we need to run the
+        git add 
+        git commit -m "new commit msg"
+
+        So basically we need to add the changes to staging then we can push.
+
+    c. Hard:
+        git reset --hard HEAD~1
+        here it will removes the complete commit msg and along with that it removes the changes as well till that commit id that we passed.
+
+        A → B → C → D
+        If we reset till B, it will completely remove the changes till B commit along with that it removes the commit history as well.
