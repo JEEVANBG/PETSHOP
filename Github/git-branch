@@ -17,4 +17,8 @@
 
     b. next time 
         git push --all
+
+4. How to delete the feature branch 
+    If we just delete the branch on main, it won't delete the branch on local, to delete the branch on local also the use the below command.
+    git branch -d feature-login / git branch -D feature-login
         
