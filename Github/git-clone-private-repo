@@ -1,0 +1,44 @@
+This file explains, how to clone the private repo on our EC2:
+
+Option: 01 SSH
+    1. Install the git on EC2.
+
+    2. Run the below command to generate the SSH Key
+        ssh-keygen -t ed25519 -C "your_email@example.com"
+
+    3. Start SSH agent & add key
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519
+
+    4. Copy your public key
+        cat ~/.ssh/id_ed25519.pub
+
+    5. Add key to your Git provider
+        On GitHub → Settings → SSH and GPG keys or add the key using deploy keys feature.
+        
+    6. Test connection
+        ssh -T git@github.com
+
+    7. Clone your repo
+        git clone git@github.com:username/repo.git
+
+    8. To clone specific branch
+        git clone -b BRANCH_NAME --single-branch git@github.com:USERNAME/REPO.git
+
+
+
+
+Option: 02 HTTPS + Personal Access Token (PAT)
+1. Generate a token
+    Create a token from:
+    GitHub → Developer settings → Personal access tokens
+
+2. Clone using HTTPS
+    git clone https://github.com/username/repo.git
+    When prompted:
+
+    Username → your username
+    Password → paste the token (not your actual password)
+
+    Optional: Store credentials
+    git config --global credential.helper store
