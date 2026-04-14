@@ -1,0 +1,108 @@
+Clean Django Flow (Easy to Understand)
+    First: Core Idea
+    Project = Entire website (configuration + entry point)
+    App = A module/feature (like blogs, users, orders)
+
+    Example:
+        Project = MYBlogs
+        Apps = blogs, users, payments
+
+Step-by-Step Setup
+1. Install & Create Virtual Environment
+    python -m venv django_tutorial
+
+    Activate:
+    Linux/Mac:
+    source django_tutorial/bin/activate
+
+    Windows:
+    django_tutorial\Scripts\activate
+
+2. Install Django
+    pip install django (before running this command you should be in venv)
+
+3. Create Project (Main Container)
+    django-admin startproject MYBlogs
+
+    Folder structure:
+    MYBlogs/
+    ├── manage.py   ⭐ (main entry point)
+    └── MYBlogs/
+        ├── settings.py   ⚙️ config
+        ├── urls.py       🌐 main routing
+        ├── asgi.py
+        └── wsgi.py
+
+4. Run Server
+    python manage.py runserver
+
+5. Initial DB Setup
+    python manage.py makemigrations
+    python manage.py migrate
+
+Now Real Development Starts (Apps)
+6. Create App
+    python manage.py startapp blogs
+
+    Folder structure:
+    blogs/
+    ├── views.py      ⭐ logic
+    ├── models.py     🗄️ database
+    ├── tests.py
+    ├── admin.py
+    └── apps.py
+
+7. Register App (VERY IMPORTANT)
+    In settings.py
+    INSTALLED_APPS = [
+        'blogs',
+    ]
+
+8. URL Wiring (Project ↔ App)
+
+    Step A: Create blogs/urls.py (Manually create this file if it is not present under the blogs app)
+    Create blogs/urls.py
+    from django.urls import path
+    from yarl import URL
+    from . import views
+
+    urlpatterns = [
+        path('', views.home),
+    ]
+
+    Step B: Connect App URLs to Project
+    👉 In MYBlogs/urls.py
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('blogs/', include('blogs.urls')),
+    ]
+
+9. Write Logic (Views)
+    In blogs/views.py
+    from django.http import HttpResponse
+
+    def home(request):
+        return HttpResponse("Hello, this is Blogs App")
+
+    So this home function will called by blogs, then blogs will internally connected to MYBlogs.
+
+10. Final Flow (VERY IMPORTANT)
+    User hits URL → Project urls.py → App urls.py → View → Response
+
+    localhost:8000/blogs/
+            ↓
+    MYBlogs/urls.py
+            ↓
+    blogs/urls.py
+            ↓
+    views.py (home function)
+            ↓
+    Response shown
+
+| Feature     | Project (MYBlogs)   | App (blogs)          |
+| ----------- | ------------------- | -------------------- |
+| Purpose     | Whole website       | Specific feature     |
+| Contains    | settings, main urls | models, views, logic |
+| Entry point | manage.py           | No                   |
+| Reusability | ❌                   | ✅ reusable           |

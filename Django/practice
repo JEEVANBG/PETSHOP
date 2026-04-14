@@ -1,0 +1,65 @@
+1. Intsall the python on server.
+
+2. To create the python virtual env
+    Run : python -m venv <name of project>
+    Ex : python -m venv django_tutorial
+
+    by that it will create the folder with django_tutorial and necessary sub folders.
+
+3. How to login to the virtual env.
+    go to created folder just click on django_tutorial --> bin --> activate (this is a file created under bin)
+    Run : source <path of the actiavte file>
+
+    In windows:
+    Run : /path of activate.bat file
+
+    So it will automaticllay login to that virtual env.
+
+4. How to install the required modules in venv.
+    Once login to the env just enter installation command like
+    Run : pip install Django
+
+5. To check the installation of modules 
+    Run : python   (in venv, it will get the python terminal)
+    After that run the python print statement to check the installed version
+
+    exit()  to exit from python terminal
+
+6.To start an project
+    Run : django-admin startproject MYBlogs
+    So it will create the project folder with MYBlogs under that it create th manage.py and MYBlogs folder only.
+
+    Note : Even you run start project in any folder now you are not in venv, in that case just run that cativate file it will open the venv in yopur start project folder.
+
+7. To start the project
+    Run : django manage.py runserver
+    It will run the django application
+
+8. Get rid of inital error
+    After running the django start we hv some error to get rid of default we need top run the below command:
+    Run : python manage.py makemigrations
+    Run : python manage.py migrate
+
+    after this we won't get any error, by this it will craete __pyacahe__ folder ignore this
+
+    Now the application running and accessable viua 8000 port
+
+9. Now to movbing to build the actual application
+    Run : python manage.py startapp blogs
+    These is where actual development started on blogs service autoamicattly it will craete teh views.py, test.py etc for this blogs application.
+
+    Note : urls.py won't create create it manually.
+
+10. Now to get the http response page
+    a. Create the urls.py manually.
+        Then in that mention we need to call which view functions from view.py and also path.
+    b. In view.py create the function with returning http resposne which is refering from urls.py.
+
+11. To make teh changes implemention
+    a. Go to project folder MYBlogs under that update the urls.py, under urpattern  add the urls.py of application blog path.
+
+    b. In setting.py under Installed apps add the blogs application
+
+    Note : In reposnse page where home function defined we need to pass request as a parameter
+
+

@@ -1,0 +1,7 @@
+Django is a high-level Python web framework used to build web applications quickly.
+
+It follows the MVT (Model–View–Template) architecture.
+Django provides built-in features like ORM (database access), authentication, and admin panel.
+It handles common tasks such as URL routing, security, and request processing.
+This reduces boilerplate code and speeds up development.
+You mainly focus on business logic while Django handles the rest.
